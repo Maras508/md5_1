@@ -86,6 +86,8 @@ namespace md5_1
             {
                 MessageBox.Show("Generowanie skrótu...");
 
+                //ggggggggggggg
+
                 using (SHA256 generator_Sha256 = SHA256.Create())
                 {
 
