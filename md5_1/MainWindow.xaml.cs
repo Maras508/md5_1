@@ -30,8 +30,10 @@ namespace md5_1
 
         public string wczytany_tekst;
         public StreamReader sr;
+        RSACryptoServiceProvider rsa;
         //public MD5 generator_MD5;
         public string skrot_wiadomosci;
+        
 
         private void textbox2_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -141,6 +143,14 @@ namespace md5_1
 
             // Return the hexadecimal string.
             return sBuilder.ToString();
+        }
+
+        private void but3_Click(object sender, RoutedEventArgs e)
+        {
+            rsa = new RSACryptoServiceProvider();
+
+            File.WriteAllText(@"C:\klucze\privateKey.xml", rsa.ToXmlString(true));  // Private Key
+            File.WriteAllText(@"C:\klucze\publicKey.xml", rsa.ToXmlString(false));  // Public Key
         }
 
     }
